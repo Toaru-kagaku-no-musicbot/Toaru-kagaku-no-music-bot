@@ -1,9 +1,9 @@
 # Toaru-kagaku-no-music-bot
 
-[![Discord](https://img.shields.io/discord/803935936219578368?color=7289da&logo=discord&logoColor=white)](https://discord.gg/etzmFDGFVg)
 [![Server count](https://api.koreanbots.dev/widget/bots/servers/714140461840728144.svg)](https://discord.com/oauth2/authorize?client_id=714140461840728144&permissions=3165184&scope=bot)
-[![CodeFactor](https://www.codefactor.io/repository/github/toaru-kagaku-no-musicbot/toaru-kagaku-no-music-bot/badge)](https://www.codefactor.io/repository/github/toaru-kagaku-no-musicbot/toaru-kagaku-no-music-bot)
-[![Codacy](https://app.codacy.com/project/badge/Grade/2820fc7b164c4603b636cc1f05f5e0c0)](https://www.codacy.com/gh/Toaru-kagaku-no-musicbot/Toaru-kagaku-no-music-bot/dashboard?utm_source=github.com&utm_medium=referral&utm_content=Toaru-kagaku-no-musicbot/Toaru-kagaku-no-music-bot&utm_campaign=Badge_Grade)
+[![Discord](https://img.shields.io/discord/803935936219578368?color=7289da&logo=discord&logoColor=white&style=for-the-badge)](https://discord.gg/etzmFDGFVg)
+[![CodeFactor](https://www.codefactor.io/repository/github/toaru-kagaku-no-musicbot/toaru-kagaku-no-music-bot/badge/dev-js?style=for-the-badge)](https://www.codefactor.io/repository/github/toaru-kagaku-no-musicbot/toaru-kagaku-no-music-bot)
+[![Codacy](https://img.shields.io/codacy/grade/2820fc7b164c4603b636cc1f05f5e0c0/dev-js?logo=Codacy&style=for-the-badge)](https://www.codacy.com/gh/Toaru-kagaku-no-musicbot/Toaru-kagaku-no-music-bot/dashboard?utm_source=github.com&utm_medium=referral&utm_content=Toaru-kagaku-no-musicbot/Toaru-kagaku-no-music-bot&utm_campaign=Badge_Grade)
 
 ## Heroku Deploy
 
