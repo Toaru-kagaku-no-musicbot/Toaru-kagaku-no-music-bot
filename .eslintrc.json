@@ -16,5 +16,9 @@
       }
     }
   },
+  "globals": {
+    "db": "readonly",
+    "dbSchema": "readonly"
+  },
   "ignorePatterns": ["node_modules/"]
 }
