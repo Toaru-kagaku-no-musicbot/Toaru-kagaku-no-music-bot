@@ -1,18 +1,22 @@
 require('dotenv').config();
+require('./utils/verifyConfig')();
 const Discord = require('discord.js');
 const { SlashCreator, GatewayServer } = require('slash-create');
 const CatLoggr = require('cat-loggr');
-
-const client = new Discord.Client();
-const creator = new SlashCreator({
-  applicationID: process.env.APPLICATION_ID,
-  publicKey: process.env.APPLICATION_PUBLIC_KEY,
-  token: process.env.BOT_TOKEN,
-});
+const initDB = require('./database/initDB');
+const addGuildLocalCommands = require('./utils/addGuildLocalCommands');
+const getRegisteredGuildCommands = require('./utils/getRegisteredGuildCommands');
 
 const logger = new CatLoggr().setLevel(
   process.env.NODE_ENV === 'production' ? 'verbose' : 'debug'
 );
+
+const client = new Discord.Client({ intents: [Discord.Intents.FLAGS.GUILDS] });
+const creator = new SlashCreator({
+  applicationID: process.env.APPLICATION_ID,
+  publicKey: process.env.APPLICATION_PUBLIC_KEY,
+  token: process.env.TOKEN,
+});
 
 creator.on('debug', (message) => logger.log(message));
 creator.on('warn', (message) => logger.warn(message));
@@ -30,12 +34,19 @@ creator.on('commandError', (command, error) =>
   logger.error(`Command ${command.commandName}:`, error)
 );
 
+// TODO: Remove TEST_GUILD_ID in production.
+const TEST_GUILD_ID = '885491889862766592';
+
 client.on('ready', async () => {
   logger.info('I am ready!');
   logger.info(`Client user ID: ${client.user.id}`);
-  await creator.withServer(
+  logger.info(`User Name: ${client.user.tag}`);
+  creator.withServer(
     new GatewayServer((handler) => client.ws.on('INTERACTION_CREATE', handler))
   );
+  await addGuildLocalCommands(creator, client, TEST_GUILD_ID);
+  getRegisteredGuildCommands(creator, TEST_GUILD_ID);
 });
 
+initDB();
 client.login(process.env.TOKEN);
