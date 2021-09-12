@@ -1,4 +1,8 @@
 {
+  "$languageCode": "en",
+  "$englishLanguageName": "English",
+  "$localLanguageName": "English",
+
   "about_bot_info": "**About**",
   "about_guild_count": "Number of servers",
   "about_members_count": "Number of users",

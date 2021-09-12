@@ -1,4 +1,8 @@
 {
+  "$languageCode": "ko",
+  "$englishLanguageName": "Korean",
+  "$localLanguageName": "한국어",
+
   "about_bot_info": "**봇에 대한 정보**",
   "about_guild_count": "서버 수",
   "about_members_count": "유저 수",
