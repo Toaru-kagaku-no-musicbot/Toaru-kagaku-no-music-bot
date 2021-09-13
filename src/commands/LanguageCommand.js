@@ -76,6 +76,7 @@ module.exports = class LanguageCommand extends SlashCommand {
     if (ctx.subcommands[0] === 'change') {
       const nowLanguage = this.language;
       const toChangeLanguage = ctx.options.change.language;
+      this.language = toChangeLanguage;
       const changingLanguageMessage = getLocaleString(
         toChangeLanguage,
         'set_language_pack_changing_language'

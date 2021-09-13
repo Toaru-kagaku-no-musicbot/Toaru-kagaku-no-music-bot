@@ -6,6 +6,7 @@ const CatLoggr = require('cat-loggr');
 const initDB = require('./database/initDB');
 const addGuildLocalCommands = require('./utils/addGuildLocalCommands');
 const getRegisteredGuildCommands = require('./utils/getRegisteredGuildCommands');
+const createErrorEmbed = require('./utils/createErrorEmbed');
 
 const logger = new CatLoggr().setLevel(
   process.env.NODE_ENV === 'production' ? 'verbose' : 'debug'
@@ -30,9 +31,10 @@ creator.on('commandRun', (command, _, ctx) =>
 creator.on('commandRegister', (command) =>
   logger.info(`Registered command ${command.commandName}`)
 );
-creator.on('commandError', (command, error) =>
-  logger.error(`Command ${command.commandName}:`, error)
-);
+creator.on('commandError', (command, error, ctx) => {
+  logger.error(`Command ${command.commandName}:`, error);
+  ctx.send({ embeds: [createErrorEmbed(ctx, command, error).toJSON()] });
+});
 
 // TODO: Remove TEST_GUILD_ID in production.
 const TEST_GUILD_ID = '885491889862766592';

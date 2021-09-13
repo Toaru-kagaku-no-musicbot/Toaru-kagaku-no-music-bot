@@ -197,5 +197,10 @@
   "set_language_pack_not_exist": "해당 언어팩은 존재하지 않아요!",
   "set_language_pack_changing_language": "언어를 변경하고 있어요...",
   "set_language_pack_updating_command": "커맨드를 업데이트하고 있어요. 오래 걸릴 수 있으니 기다려주세요...",
-  "set_language_complete": "언어팩 설정 완료!"
+  "set_language_complete": "언어팩 설정 완료!",
+
+  "command_error_title": "명령어 처리 도중 에러가 발생했어요.",
+  "command_error_description": "잠시 후 다시 시도 하시거나 봇 관리자에게 문의해주세요.",
+  "command_error_command_info": "명령어 정보",
+  "command_error_technical_info": "기술적 정보"
 }
