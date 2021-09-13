@@ -1,4 +1,3 @@
-const { MessageEmbed } = require('discord.js');
 const getLocaleString = require('../language/getLocaleString');
 const getBaseEmbed = require('./getBaseEmbed');
 
