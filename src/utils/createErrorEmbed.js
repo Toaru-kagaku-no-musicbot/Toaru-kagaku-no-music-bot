@@ -1,3 +1,4 @@
+const { stripIndents } = require('common-tags');
 const getLocaleString = require('../language/getLocaleString');
 const getBaseEmbed = require('./getBaseEmbed');
 
@@ -12,7 +13,7 @@ function generateCommandInfo(ctx) {
     invokedAt,
     options,
   } = ctx;
-  return `Command Name: \`${commandName}\`
+  return stripIndents`Command Name: \`${commandName}\`
   Command ID: \`${commandID}\`
   Interaction ID: \`${interactionID}\`
   Options: \`${JSON.stringify(options)}\`\n
