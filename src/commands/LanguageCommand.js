@@ -41,6 +41,7 @@ module.exports = class LanguageCommand extends SlashCommand {
           name: 'change',
           description: languageChangeCommandInfo,
           type: CommandOptionType.SUB_COMMAND,
+          throttling: { duration: 43200, usages: 1 },
           options: [
             {
               type: CommandOptionType.STRING,
@@ -76,6 +77,17 @@ module.exports = class LanguageCommand extends SlashCommand {
     if (ctx.subcommands[0] === 'change') {
       const nowLanguage = this.language;
       const toChangeLanguage = ctx.options.change.language;
+      if (nowLanguage === toChangeLanguage) {
+        const alreadyAppliedMessage = getLocaleString(
+          nowLanguage,
+          'set_language_pack_already_applied'
+        );
+        const alreadyAppliedEmbed = getBaseEmbed(toChangeLanguage).setTitle(
+          alreadyAppliedMessage
+        );
+        await ctx.send({ embeds: [alreadyAppliedEmbed.toJSON()] });
+        return;
+      }
       this.language = toChangeLanguage;
       const changingLanguageMessage = getLocaleString(
         toChangeLanguage,
