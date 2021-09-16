@@ -1,5 +1,5 @@
 const { stripIndents } = require('common-tags');
-const getLocaleString = require('../language/getLocaleString');
+const getLocaleString = require('../../language/getLocaleString');
 const getBaseEmbed = require('./getBaseEmbed');
 
 function generateCommandInfo(ctx) {
