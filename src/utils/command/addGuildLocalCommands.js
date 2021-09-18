@@ -13,4 +13,5 @@ module.exports = async (creator, botClient, guildID, language) => {
     guildLanguage
   );
   await creator.syncCommandsIn(guildID);
+  await creator.syncCommandPermissions();
 };
