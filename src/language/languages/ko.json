@@ -194,7 +194,7 @@
   "owners_broadcast_info": "공지 내용 :\n```{{broadcast_info}}```",
 
   "set_language_pack_list": "사용 가능한 언어팩 목록이에요.",
-  "set_language_pack_already_using": "이미 해당 언어팩이 적용되어 있어요!",
+  "set_language_pack_already_applied": "이미 해당 언어팩이 적용되어 있어요!",
   "set_language_pack_changing_language": "언어를 변경하고 있어요...",
   "set_language_pack_updating_command": "커맨드를 업데이트하고 있어요. 오래 걸릴 수 있으니 기다려주세요...",
   "set_language_complete": "언어팩 설정 완료!",
@@ -202,5 +202,8 @@
   "command_error_title": "명령어 처리 도중 에러가 발생했어요.",
   "command_error_description": "잠시 후 다시 시도 하시거나 봇 관리자에게 문의해주세요.",
   "command_error_command_info": "명령어 정보",
-  "command_error_technical_info": "기술적 정보"
+  "command_error_technical_info": "기술적 정보",
+
+  "command_throttle_title": "`{{commandName}}` 명령어는 실행 속도가 제한된 명령어에요.",
+  "command_throttle_description": "해당 명령어는 <t:{{whenAvailable}}:R> 다시 사용 가능해요."
 }

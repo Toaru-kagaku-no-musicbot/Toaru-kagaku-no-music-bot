@@ -194,7 +194,7 @@
   "owners_broadcast_info": "Notice contents :\n```{{broadcast_info}}```",
 
   "set_language_pack_list": "This is a list of available language packs.",
-  "set_language_pack_already_using": "The language pack is already applied!",
+  "set_language_pack_already_applied": "The language pack is already applied!",
   "set_language_pack_changing_language": "Language changing...",
   "set_language_pack_updating_command": "The command is being updated. This may take a long time. Please wait...",
   "set_language_complete": "Language setting complete!",
@@ -202,5 +202,8 @@
   "command_error_title": "An error occurred while processing the command.",
   "command_error_description": "Please try again later or contact the bot administrator.",
   "command_error_command_info": "Command Information",
-  "command_error_technical_info": "Technical Information"
+  "command_error_technical_info": "Technical Information",
+
+  "command_throttle_title": "{{commandName}} command execution speed is limited.",
+  "command_throttle_description": "The command is available in <t:{{whenAvailable}}:R>."
 }
