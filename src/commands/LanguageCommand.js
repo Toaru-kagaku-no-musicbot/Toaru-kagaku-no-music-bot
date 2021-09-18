@@ -1,13 +1,17 @@
 require('dotenv').config();
-const { SlashCommand, CommandOptionType } = require('slash-create');
+const {
+  CommandOptionType,
+  ApplicationCommandPermissionType,
+} = require('slash-create');
+const BaseCommand = require('./BaseCommand');
 const getLanguageList = require('../language/getLanguageList');
 const setGuildLanguage = require('../language/setGuildLanguage');
 const getLocaleString = require('../language/getLocaleString');
-const getBaseEmbed = require('../utils/getBaseEmbed');
-const deleteGuildLocalCommands = require('../utils/deleteGuildLocalCommands');
-const addGuildLocalCommands = require('../utils/addGuildLocalCommands');
+const getBaseEmbed = require('../utils/embed/getBaseEmbed');
+const deleteGuildLocalCommands = require('../utils/command/deleteGuildLocalCommands');
+const addGuildLocalCommands = require('../utils/command/addGuildLocalCommands');
 
-module.exports = class LanguageCommand extends SlashCommand {
+module.exports = class LanguageCommand extends BaseCommand {
   constructor(creator, botClient, guildID, language) {
     const languageCommandInfo = getLocaleString(language, 'help_language_info');
     const languageChangeCommandInfo = getLocaleString(

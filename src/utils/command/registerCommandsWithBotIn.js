@@ -19,6 +19,7 @@ module.exports = (
   const commands = [];
   function iterate(object) {
     Object.values(object).forEach((Command) => {
+      if (Command.name === 'BaseCommand') return;
       if (typeof Command === 'function') {
         if (isGuildCommand)
           commands.push(new Command(creator, botClient, guildID, language));

@@ -4,9 +4,10 @@ const Discord = require('discord.js');
 const { SlashCreator, GatewayServer } = require('slash-create');
 const CatLoggr = require('cat-loggr');
 const initDB = require('./database/initDB');
-const addGuildLocalCommands = require('./utils/addGuildLocalCommands');
-const getRegisteredGuildCommands = require('./utils/getRegisteredGuildCommands');
-const createErrorEmbed = require('./utils/createErrorEmbed');
+const addGuildLocalCommands = require('./utils/command/addGuildLocalCommands');
+const getRegisteredGuildCommands = require('./utils/command/getRegisteredGuildCommands');
+const createErrorEmbed = require('./utils/embed/createErrorEmbed');
+const createThrottlingEmbed = require('./utils/embed/createThrottlingEmbed');
 
 const logger = new CatLoggr().setLevel(
   process.env.NODE_ENV === 'production' ? 'verbose' : 'debug'
@@ -31,9 +32,8 @@ creator.on('commandRun', (command, _, ctx) =>
 creator.on('commandRegister', (command) =>
   logger.info(`Registered command ${command.commandName}`)
 );
-creator.on('commandError', (command, error, ctx) => {
+creator.on('commandError', (command, error) => {
   logger.error(`Command ${command.commandName}:`, error);
-  ctx.send({ embeds: [createErrorEmbed(ctx, command, error).toJSON()] });
 });
 
 // TODO: Remove TEST_GUILD_ID in production.
