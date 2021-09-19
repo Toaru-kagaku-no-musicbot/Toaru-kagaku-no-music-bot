@@ -10,7 +10,6 @@ const getLocaleString = require('../language/getLocaleString');
 const getBaseEmbed = require('../utils/embed/getBaseEmbed');
 const deleteGuildLocalCommands = require('../utils/command/deleteGuildLocalCommands');
 const addGuildLocalCommands = require('../utils/command/addGuildLocalCommands');
-const getOwnerPermissions = require('../utils/getOwnerPermissions');
 
 module.exports = class LanguageCommand extends BaseCommand {
   constructor(creator, botClient, guildID, language) {
