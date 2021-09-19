@@ -38,6 +38,7 @@ creator.on('commandError', (command, error) => {
 
 // TODO: Remove TEST_GUILD_ID in production.
 const TEST_GUILD_ID = '885491889862766592';
+const TEST_GUILD_ID2 = '803935936219578368';
 
 client.on('ready', async () => {
   logger.info('I am ready!');
@@ -47,7 +48,7 @@ client.on('ready', async () => {
     new GatewayServer((handler) => client.ws.on('INTERACTION_CREATE', handler))
   );
   await addGuildLocalCommands(creator, client, TEST_GUILD_ID);
-  getRegisteredGuildCommands(creator, TEST_GUILD_ID);
+  await addGuildLocalCommands(creator, client, TEST_GUILD_ID2);
 });
 
 initDB();
