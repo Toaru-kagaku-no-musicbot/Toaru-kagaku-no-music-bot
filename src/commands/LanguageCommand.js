@@ -58,7 +58,6 @@ module.exports = class LanguageCommand extends BaseCommand {
         },
       ],
       throttling: { duration: 43200, usages: 1 },
-      defaultPermission: false,
     });
     this.filePath = __filename;
     this.botClient = botClient;
