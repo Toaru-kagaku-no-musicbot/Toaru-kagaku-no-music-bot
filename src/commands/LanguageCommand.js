@@ -10,6 +10,7 @@ const getLocaleString = require('../language/getLocaleString');
 const getBaseEmbed = require('../utils/embed/getBaseEmbed');
 const deleteGuildLocalCommands = require('../utils/command/deleteGuildLocalCommands');
 const addGuildLocalCommands = require('../utils/command/addGuildLocalCommands');
+const getOwnerPermissions = require('../utils/getOwnerPermissions');
 
 module.exports = class LanguageCommand extends BaseCommand {
   constructor(creator, botClient, guildID, language) {
@@ -52,14 +53,28 @@ module.exports = class LanguageCommand extends BaseCommand {
               name: 'language',
               description: optionLanguageDescription,
               choices: languageOptions,
+              required: true,
             },
           ],
         },
       ],
+      throttling: { duration: 43200, usages: 1 },
+      defaultPermission: false,
     });
     this.filePath = __filename;
     this.botClient = botClient;
     this.language = language;
+    this.previousAllCommand = true;
+  }
+
+  async onBlock(ctx, reason, data) {
+    if (ctx.subcommands[0] === 'all' || this.previousAllCommand) {
+      this.previousAllCommand = true;
+      this.run(ctx);
+      return;
+    }
+    this.previousAllCommand = false;
+    super.onBlock(ctx, reason, data);
   }
 
   async run(ctx) {
