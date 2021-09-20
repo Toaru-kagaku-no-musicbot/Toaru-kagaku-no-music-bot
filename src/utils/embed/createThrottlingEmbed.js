@@ -4,7 +4,6 @@ const getBaseEmbed = require('./getBaseEmbed');
 module.exports = (ctx, command, data) => {
   const { language } = command;
   const throttleData = data.throttle;
-  console.log(data);
 
   return getBaseEmbed(language)
     .setColor('RED')

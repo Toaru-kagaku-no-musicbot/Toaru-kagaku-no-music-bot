@@ -1,8 +1,5 @@
 require('dotenv').config();
-const {
-  CommandOptionType,
-  ApplicationCommandPermissionType,
-} = require('slash-create');
+const { CommandOptionType } = require('slash-create');
 const BaseCommand = require('./BaseCommand');
 const getLanguageList = require('../language/getLanguageList');
 const setGuildLanguage = require('../language/setGuildLanguage');
