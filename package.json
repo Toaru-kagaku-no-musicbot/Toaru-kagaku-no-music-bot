@@ -28,8 +28,8 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-prettier": "^4.0.0",
-    "nodemon": "^2.0.12",
-    "prettier": "^2.3.2"
+    "nodemon": "^2.0.13",
+    "prettier": "^2.4.1"
   },
   "dependencies": {
     "cat-loggr": "^1.2.2",
@@ -40,6 +40,6 @@
     "liquidjs": "^9.25.1",
     "pg": "^8.7.1",
     "require-all": "^3.0.0",
-    "slash-create": "^4.0.1"
+    "slash-create": "^4.2.0"
   }
 }
