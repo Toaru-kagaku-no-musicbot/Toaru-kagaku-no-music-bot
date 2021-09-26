@@ -41,5 +41,8 @@
     "pg": "^8.7.1",
     "require-all": "^3.0.0",
     "slash-create": "^4.2.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
