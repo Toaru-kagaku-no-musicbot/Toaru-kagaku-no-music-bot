@@ -7,9 +7,16 @@ const logger = new CatLoggr().setLevel(
   process.env.NODE_ENV === 'production' ? 'verbose' : 'debug'
 );
 
-const envConfig = dotenv.parse(fs.readFileSync('.env'));
+const envConfig = (() => {
+  try {
+    return dotenv.parse(fs.readFileSync('.env'));
+  } catch (e) {
+    return null;
+  }
+})();
+
 function getConfig(config) {
-  return envConfig[config] ?? process.env[config];
+  return envConfig?.[config] ?? process.env[config];
 }
 
 function exitWithError(message) {
