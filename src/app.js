@@ -38,6 +38,7 @@ const TEST_GUILD_ID = '885491889862766592';
 const TEST_GUILD_ID2 = '803935936219578368';
 
 client.on('ready', async () => {
+  await initDB();
   logger.info('I am ready!');
   logger.info(`Client user ID: ${client.user.id}`);
   logger.info(`User Name: ${client.user.tag}`);
@@ -48,5 +49,4 @@ client.on('ready', async () => {
   await addGuildLocalCommands(creator, client, TEST_GUILD_ID2);
 });
 
-initDB();
 client.login(process.env.TOKEN);
